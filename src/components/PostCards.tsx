@@ -41,7 +41,7 @@ top: 6px;
 `
 
 const PostCards: React.FC<PostCardProps> = ({ id, title, content, onDelete }) => {
-  const [isLick, setIsLick] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
   const [isMenu, setIsMenu] = useState(false);
   const [postNew, setPostNew] = useState<string>(content);
 
@@ -50,7 +50,7 @@ const PostCards: React.FC<PostCardProps> = ({ id, title, content, onDelete }) =>
   }
 
   const toggleLick = () => {
-    setIsLick(!isLick)
+    setIsLiked(!isLiked)
   }
 
   const editCard = () => {
@@ -69,10 +69,10 @@ const deleteCard = () => {
     <Card>
       <h2>{title}</h2>
       <p>{postNew}</p>
-      <p>{isLick ? "в избронных" : ""}</p>
+      <p>{isLiked ? "в избронных" : ""}</p>
       <MenuButton onClick={toggleMenu}>:</MenuButton>
       {isMenu && <MenuCardsPost 
-      onLick={toggleLick}  onDelete={deleteCard}  onEdit={editCard}/>}
+      onLiked={toggleLick}  onDelete={deleteCard}  onEdit={editCard}/>}
     </Card>
   );
 };

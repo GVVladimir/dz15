@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 interface PostMenuProps {
-  onLick: () => void;
+  onLiked: () => void;
   onDelete: () => void;
   onEdit: () => void;
 }
@@ -17,7 +17,7 @@ const MenuContainer = styled.div`
   padding: 8px;
   z-index: 10;
 
-  @media (max-wigth: 768px) {
+  @media (max-width: 768px) {
     wigth: 100%;
     tight: 0;
   }
@@ -37,7 +37,7 @@ const MenuItem = styled.button`
 `;
 
 const MenuCardsPost: React.FC<PostMenuProps> = ({
-  onLick,
+  onLiked,
   onDelete,
   onEdit,
 }) => {
@@ -45,7 +45,7 @@ const MenuCardsPost: React.FC<PostMenuProps> = ({
     <MenuContainer>
       <MenuItem onClick={onEdit}>Редактировать</MenuItem>
       <MenuItem onClick={onDelete}>Удалить</MenuItem>
-      <MenuItem onClick={onLick}>В избранное</MenuItem>
+      <MenuItem onClick={onLiked}>В избранное</MenuItem>
     </MenuContainer>
   );
 };
